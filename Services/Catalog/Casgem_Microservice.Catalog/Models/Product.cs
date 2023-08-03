@@ -2,7 +2,7 @@
 
 namespace Casgem_Microservice.Catalog.Models
 {
-    public class Products
+    public class Product
     {
         [BsonId]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)] //otomatik guid bir değer vermesi içindir! guid tür veri tipi.
