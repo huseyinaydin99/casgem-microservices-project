@@ -10,5 +10,6 @@ namespace Casgem_Microservice.Catalog.Services.ProductServices
         Task<Response<CreateProductDto>> CreateProductAsync(CreateProductDto createProductDto);
         Task<Response<UpdateProductDto>> UpdateCategoryAsync(UpdateProductDto updateProductDto);
         Task<Response<NoContent>> DeleteAsync(string id);
+        Task<Response<List<ResultProductDto>>> GetProductListWithAsync();
     }
 }

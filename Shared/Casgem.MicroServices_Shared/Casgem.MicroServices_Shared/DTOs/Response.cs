@@ -16,15 +16,20 @@ namespace Casgem.MicroServices.Shared.DTOs
         {
             return new Response<T> { Data = data, StatusCode = statusCode, IsSuccessful = true };
         }
-        /*
+
         public static Response<T> Success(int statusCode)
         {
-            return new Response<T> { StatusCode = statusCode, IsSuccessful = false };
+            return new Response<T> { StatusCode = statusCode, Data = default(T), IsSuccessful = true };
         }
-        */
+
         public static Response<T> Fail(List<string> errors, int statusCode)
         {
             return new Response<T> { IsSuccessful = false, Errors = errors, StatusCode = statusCode };
+        }
+
+        public static Response<T> Fail(string errorMessage, int statusCode)
+        {
+            return new Response<T> { IsSuccessful = false, Errors = new List<string> { errorMessage }, StatusCode = statusCode };
         }
     }
 }
