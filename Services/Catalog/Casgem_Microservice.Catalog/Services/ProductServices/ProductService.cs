@@ -7,7 +7,7 @@ using MongoDB.Driver;
 
 namespace Casgem_Microservice.Catalog.Services.ProductServices
 {
-    public class ProductService : IProductSerivce
+    public class ProductService : IProductService
     {
         private readonly IMapper _mapper;
         private readonly IMongoCollection<Product> _productCollection;
@@ -72,7 +72,7 @@ namespace Casgem_Microservice.Catalog.Services.ProductServices
             return Response<List<ResultProductDto>>.Success(_mapper.Map<List<ResultProductDto>>(values), 200);
         }
 
-        public async Task<Response<UpdateProductDto>> UpdateCategoryAsync(UpdateProductDto updateProductDto)
+        public async Task<Response<UpdateProductDto>> UpdateProductAsync(UpdateProductDto updateProductDto)
         {
             var value = _mapper.Map<Product>(updateProductDto);
             var result = await _productCollection.FindOneAndReplaceAsync(x => x.ProductId == updateProductDto.ProductId, value);

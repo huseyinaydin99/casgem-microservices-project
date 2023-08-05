@@ -16,9 +16,9 @@ namespace Casgem_Microservice.Catalog.Services.CategoryServices
         public CategoryService(IMapper mapper, IDatabaseSettings databaseSettings)
         {
             _mapper = mapper;
-            var client = new MongoClient(_databaseSettings.ConnectionString);
-            var database = client.GetDatabase(_databaseSettings.DatabaseName);
-            _categoryCollection = database.GetCollection<Category>(_databaseSettings.CategoryCollectionName);
+            var client = new MongoClient(databaseSettings.ConnectionString);
+            var database = client.GetDatabase(databaseSettings.DatabaseName);
+            _categoryCollection = database.GetCollection<Category>(databaseSettings.CategoryCollectionName);
         }
 
         public async Task<Response<CreateCategoryDto>> CreateCategoryAsync(CreateCategoryDto createCategoryDto)
@@ -30,7 +30,7 @@ namespace Casgem_Microservice.Catalog.Services.CategoryServices
 
         public async Task<Response<NoContent>> DeleteAsync(string id)
         {
-            var value = await _categoryCollection.DeleteOneAsync(id);
+            var value = await _categoryCollection.DeleteOneAsync(x=>x.CategoryId == id);
             if (value.DeletedCount > 0)
             {
                 return Response<NoContent>.Success(204);

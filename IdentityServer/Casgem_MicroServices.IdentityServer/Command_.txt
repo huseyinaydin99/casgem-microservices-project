@@ -1,0 +1,1 @@
+﻿ dotnet new is4aspid --name Casgem_MicroServices.IdentityServer

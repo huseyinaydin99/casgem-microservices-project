@@ -37,7 +37,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Casgem_Microservice.Payment
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{5C5719D7-B99F-415D-9E24-E80A12BB44B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Casgem.MicroServices.Shared", "Shared\Casgem.MicroServices_Shared\Casgem.MicroServices_Shared\Casgem.MicroServices.Shared.csproj", "{E4829F05-DDE5-493A-AB83-A10B847B5536}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Casgem.MicroServices.Shared", "Shared\Casgem.MicroServices_Shared\Casgem.MicroServices_Shared\Casgem.MicroServices.Shared.csproj", "{E4829F05-DDE5-493A-AB83-A10B847B5536}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{CB3BC6C9-8D2A-46AE-8F90-F871D24027DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Casgem_MicroServices.IdentityServer", "IdentityServer\Casgem_MicroServices.IdentityServer\Casgem_MicroServices.IdentityServer.csproj", "{C1DF34C0-7131-408A-82B4-714C75102935}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +77,10 @@ Global
 		{E4829F05-DDE5-493A-AB83-A10B847B5536}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4829F05-DDE5-493A-AB83-A10B847B5536}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4829F05-DDE5-493A-AB83-A10B847B5536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1DF34C0-7131-408A-82B4-714C75102935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1DF34C0-7131-408A-82B4-714C75102935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1DF34C0-7131-408A-82B4-714C75102935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1DF34C0-7131-408A-82B4-714C75102935}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +99,7 @@ Global
 		{69DB4EF8-BD67-44E8-82CD-FEA739A906EF} = {D6C3A747-1270-43B3-B69E-63A4FF8416D2}
 		{E23F188E-6D49-4D1E-AC21-4A1EE3A45847} = {4D836B7F-EDCC-4E57-B8C7-6D0424516BE9}
 		{E4829F05-DDE5-493A-AB83-A10B847B5536} = {5C5719D7-B99F-415D-9E24-E80A12BB44B0}
+		{C1DF34C0-7131-408A-82B4-714C75102935} = {CB3BC6C9-8D2A-46AE-8F90-F871D24027DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1AEAE547-0C5C-44DC-8D63-BDAEB9A9E5C1}
