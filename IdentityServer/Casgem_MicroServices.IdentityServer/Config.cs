@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using IdentityServer4;
 using IdentityServer4.Models;
 using System.Collections.Generic;
 
@@ -9,18 +10,96 @@ namespace Casgem_MicroServices.IdentityServer
 {
     public static class Config
     {
+        public static IEnumerable<ApiResource> ApiResources => new ApiResource[]
+        {
+            new ApiResource("resource_catalog")
+            {
+                Scopes =
+                {
+                    "catalog_fullpermission"
+                }
+            },
+            new ApiResource("resource_photostock")
+            {
+                Scopes =
+                {
+                    "photostock_fullpermission"
+                }
+            },
+            new ApiResource("resorce_basket")
+            {
+                Scopes =
+                {
+                    "basket_fullpermission"
+                }
+            },
+            new ApiResource("resource_discount")
+            {
+                Scopes =
+                {
+                    "discount_fullpermission"
+                }
+            },
+            new ApiResource("resource_order")
+            {
+                Scopes =
+                {
+                    "order_fullpermission"
+                }
+            },
+            new ApiResource("resource_payment")
+            {
+                Scopes =
+                {
+                    "payment_fullpermission"
+                }
+            },
+            new ApiResource("resource_gateway")
+            {
+                Scopes =
+                {
+                    "gateway_fullpermission"
+                }
+            }
+            ,
+            new ApiResource("resource_cargo")
+            {
+                Scopes =
+                {
+                    "cargo_fullpermission"
+                }
+            },
+            new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
+        };
         public static IEnumerable<IdentityResource> IdentityResources =>
                    new IdentityResource[]
                    {
-                new IdentityResources.OpenId(),
-                new IdentityResources.Profile(),
+                        new IdentityResources.Email(),
+                        new IdentityResources.OpenId(),
+                        new IdentityResources.Profile(),
+                        new IdentityResource()
+                        {
+                            Name = "roles",
+                            DisplayName = "Roles",
+                            Description = "Kullanıcı rolleri",
+                            UserClaims = new []{"role"}
+                        }
                    };
 
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-                new ApiScope("scope1"),
-                new ApiScope("scope2"),
+                new ApiScope("catalog_fullpermission","Ürünler ve kategoriler API için full erişim."),
+                new ApiScope("photo_stock_fullpermission","Fotoğraf Deposu API için full erişim."),
+                new ApiScope("basket_fullpermission","Sepet API için full erişim."),
+                new ApiScope("discount_fullpermission","İndirim API için full erişim."),
+                new ApiScope("order_fullpermission","Sipariş API için full erişim."),
+                new ApiScope("payment_fullpermission","Ödeme API için full erişim."),
+                new ApiScope("gateway_fullpermission","Geçiş kapısı API için full erişim."),
+                new ApiScope("cargo_fullpermission","Kargo API için full erişim."),
+                new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
+                /*new ApiScope("scope1"),
+                new ApiScope("scope2"),*/
             };
 
         public static IEnumerable<Client> Clients =>

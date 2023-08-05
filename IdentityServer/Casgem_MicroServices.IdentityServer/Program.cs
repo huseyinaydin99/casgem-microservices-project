@@ -63,7 +63,7 @@ namespace Casgem_MicroServices.IdentityServer
                             City = "Niğde",
                             Country = "Turkiye",
                             NameSurname = "Hüseyin Aydın"
-                        }, "123456Aa*");
+                        }, "123456Aa*").Wait();
                     }
                 };
                 if (seed)
