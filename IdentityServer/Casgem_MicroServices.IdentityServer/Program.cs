@@ -2,7 +2,11 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using Casgem_MicroServices.IdentityServer.Data;
+using Casgem_MicroServices.IdentityServer.Models;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -44,16 +48,32 @@ namespace Casgem_MicroServices.IdentityServer
                 }
 
                 var host = CreateHostBuilder(args).Build();
+                using (var scope = host.Services.CreateScope()) {
+                    var serviceProvider = scope.ServiceProvider;
+                    var applicationDbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
+                    applicationDbContext.Database.Migrate();
+                    var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                    if (!userManager.Users.Any())
+                    {
+                        userManager.CreateAsync(new ApplicationUser{
+                            UserName = "huseyinaydin99",
+                            Email = "huseyinaydin99@gmail.com",
+                            City = "Niğde",
+                            Country = "Turkiye",
+                            NameSurname = "Hüseyin Aydın"
+                        }, "123456Aa*");
 
-                if (seed)
-                {
-                    Log.Information("Seeding database...");
-                    var config = host.Services.GetRequiredService<IConfiguration>();
-                    var connectionString = config.GetConnectionString("DefaultConnection");
-                    SeedData.EnsureSeedData(connectionString);
-                    Log.Information("Done seeding database.");
-                    return 0;
-                }
+                    }
+                };
+                    if (seed)
+                    {
+                        Log.Information("Seeding database...");
+                        var config = host.Services.GetRequiredService<IConfiguration>();
+                        var connectionString = config.GetConnectionString("DefaultConnection");
+                        SeedData.EnsureSeedData(connectionString);
+                        Log.Information("Done seeding database.");
+                        return 0;
+                    }
 
                 Log.Information("Starting host...");
                 host.Run();
