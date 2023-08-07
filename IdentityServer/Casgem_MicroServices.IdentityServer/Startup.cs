@@ -36,6 +36,7 @@ namespace Casgem_MicroServices.IdentityServer
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+            services.AddLocalApiAuthentication();
 
             var builder = services.AddIdentityServer(options =>
             {
@@ -81,6 +82,7 @@ namespace Casgem_MicroServices.IdentityServer
 
             app.UseRouting();
             app.UseIdentityServer();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
