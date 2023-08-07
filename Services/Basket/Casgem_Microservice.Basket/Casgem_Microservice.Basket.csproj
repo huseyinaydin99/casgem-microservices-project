@@ -7,11 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.143" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.20" />
+    <PackageReference Include="Npgsql" Version="6.0.9" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Settings\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Casgem.MicroServices_Shared\Casgem.MicroServices_Shared\Casgem.MicroServices.Shared.csproj" />
   </ItemGroup>
 
 </Project>

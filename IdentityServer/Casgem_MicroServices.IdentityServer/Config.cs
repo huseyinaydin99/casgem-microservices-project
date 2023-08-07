@@ -91,7 +91,7 @@ namespace Casgem_MicroServices.IdentityServer
             new ApiScope[]
             {
                 new ApiScope("catalog_fullpermission","Ürünler ve kategoriler API için full erişim."),
-                new ApiScope("photo_stock_fullpermission","Fotoğraf Deposu API için full erişim."),
+                new ApiScope("photostock_fullpermission","Fotoğraf Deposu API için full erişim."),
                 new ApiScope("basket_fullpermission","Sepet API için full erişim."),
                 new ApiScope("discount_fullpermission","İndirim API için full erişim."),
                 new ApiScope("order_fullpermission","Sipariş API için full erişim."),
